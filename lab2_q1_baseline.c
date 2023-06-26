@@ -1,0 +1,22 @@
+// TODO : 
+"addi t0, x0, 16\n\t"
+"addi %[arith_cnt], %[arith_cnt], 1\n\t"
+
+"Loop:\n\t"
+"beq t0, x0, Exit\n\t"
+"lw t1, (%[h])\n\t"
+"lw t2, (%[x])\n\t"
+"add t3, t1, t2\n\t"
+"sw t3, (%[y])\n\t"
+"addi %[h], %[h], 2\n\t"
+"addi %[x], %[x], 2\n\t"
+"addi %[y], %[y], 2\n\t"
+"addi t0, t0, -1\n\t"
+"addi %[others_cnt], %[others_cnt], 2\n\t"
+"addi %[lw_cnt], %[lw_cnt], 2\n\t"
+"addi %[arith_cnt], %[arith_cnt], 5\n\t"
+"addi %[sw_cnt], %[sw_cnt], 1\n\t"
+"beq x0, x0, Loop\n\t"
+
+"Exit:\n\t"
+"addi %[others_cnt], %[others_cnt], 1\n\t"
